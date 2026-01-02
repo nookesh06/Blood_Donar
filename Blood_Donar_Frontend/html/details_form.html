@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Blood Donation Details</title>
+    <link rel="stylesheet" href="../css/details_form.css">
+    <script src="../js/details_form.js" defer></script>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <!-- ASIDE -->
+        <aside class="info-panel">
+            <h2>🩸 Blood Donation</h2>
+            <p>
+                Share your live location to help patients find nearby donors
+                quickly during emergencies.
+            </p>
+            <ul>
+                <li>✔ GPS-based accurate location</li>
+                <li>✔ Faster donor matching</li>
+                <li>✔ Secure & permission-based</li>
+            </ul>
+        </aside>
+
+        <!-- FORM -->
+        <section class="form-section">
+            <h2>Donor Details</h2>
+
+            <form id="details_form">
+                <input type="text" name="city" placeholder="City" required>
+
+                <!-- Latitude & Longitude (hidden but submitted) -->
+                <input type="text" id="latitude" name="latitude" placeholder="Latitude" readonly>
+                <input type="text" id="longitude" name="longitude" placeholder="Longitude" readonly>
+
+                <button type="button" onclick="getLocation()">📍 Use Current Location</button>
+
+                <div class="gender-group">
+                    <label><input type="radio" name="gender" value="male" required> Male</label>
+                    <label><input type="radio" name="gender" value="female"> Female</label>
+                    <label><input type="radio" name="gender" value="other"> Other</label>
+                </div>
+
+<button type="submit" id="btnSubmit">Submit</button>
+            </form>
+        </section>
+
+    </div>
+    
+</body>
+
+</html>

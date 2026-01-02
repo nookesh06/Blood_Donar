@@ -1,0 +1,217 @@
+/* ===============================
+   GLOBAL RESET & BASE STYLES
+   =============================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+}
+
+body {
+    background: #f3f6fb;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 30px;
+    color: #333;
+}
+
+/* ===============================
+   MAIN CONTAINER
+   =============================== */
+.container {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    background: #ffffff;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+}
+
+/* ===============================
+   ASIDE – INFORMATION PANEL
+   =============================== */
+.info-panel {
+    width: 40%;
+    background: linear-gradient(135deg, #b71c1c, #d32f2f);
+    color: #ffffff;
+    padding: 40px 30px;
+}
+
+.info-panel h2 {
+    font-size: 26px;
+    margin-bottom: 15px;
+}
+
+.info-panel p {
+    font-size: 15px;
+    line-height: 1.7;
+    margin-bottom: 15px;
+    opacity: 0.95;
+}
+
+.info-panel ul {
+    list-style: none;
+    margin: 20px 0;
+}
+
+.info-panel ul li {
+    font-size: 15px;
+    margin-bottom: 10px;
+    padding-left: 22px;
+    position: relative;
+}
+
+.info-panel ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #ffeb3b;
+    font-weight: bold;
+}
+
+/* ===============================
+   FORM SECTION
+   =============================== */
+.form-section {
+    width: 60%;
+    padding: 40px 35px;
+}
+
+.form-section h2 {
+    font-size: 24px;
+    margin-bottom: 25px;
+    color: #2c2c2c;
+}
+
+/* ===============================
+   FORM ELEMENTS
+   =============================== */
+form {
+    display: flex;
+    flex-direction: column;
+}
+
+form input[type="text"] {
+    width: 100%;
+    padding: 12px 14px;
+    margin-bottom: 15px;
+    font-size: 15px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    transition: all 0.25s ease;
+}
+
+form input[readonly] {
+    background-color: #f5f5f5;
+    cursor: not-allowed;
+}
+
+form input[type="text"]:focus {
+    outline: none;
+    border-color: #c62828;
+    box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.15);
+}
+
+/* ===============================
+   LOCATION BUTTON
+   =============================== */
+button {
+    background: #1976d2;
+    color: #ffffff;
+    border: none;
+    padding: 11px 14px;
+    margin-bottom: 18px;
+    font-size: 14px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, transform 0.1s ease;
+}
+
+button:hover {
+    background: #0d47a1;
+}
+
+button:active {
+    transform: scale(0.98);
+}
+
+/* ===============================
+   GENDER RADIO GROUP
+   =============================== */
+.gender-group {
+    display: flex;
+    gap: 25px;
+    margin-bottom: 25px;
+    font-size: 15px;
+}
+
+.gender-group label {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    cursor: pointer;
+}
+
+/* ===============================
+   SUBMIT BUTTON
+   =============================== */
+form input[type="submit"] {
+    background: #c62828;
+    color: #ffffff;
+    border: none;
+    padding: 13px;
+    font-size: 16px;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background 0.3s ease, box-shadow 0.3s ease;
+}
+
+form input[type="submit"]:hover {
+    background: #a61c1c;
+    box-shadow: 0 5px 15px rgba(198, 40, 40, 0.4);
+}
+
+/* ===============================
+   RESPONSIVE DESIGN
+   =============================== */
+@media (max-width: 900px) {
+    .container {
+        flex-direction: column;
+    }
+
+    .info-panel,
+    .form-section {
+        width: 100%;
+    }
+
+    .info-panel {
+        padding: 30px;
+        text-align: center;
+    }
+
+    .info-panel ul li {
+        padding-left: 0;
+    }
+
+    .info-panel ul li::before {
+        display: none;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 15px;
+    }
+
+    .form-section {
+        padding: 25px 20px;
+    }
+
+    .info-panel {
+        padding: 25px 20px;
+    }
+}
