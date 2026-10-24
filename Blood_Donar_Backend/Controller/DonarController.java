@@ -75,10 +75,7 @@ public class DonarController {
         return userService.updateProfile(emailId, dto);
     }
 
-    @GetMapping("/")
-    public String home() {
-        return "redirect:/home_page.html";
-    }
+   
 
     
 }
