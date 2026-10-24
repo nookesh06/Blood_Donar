@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact | Blood Donor Management</title>
+  <link rel="stylesheet" href="/css/home_page.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="/css/contact.css">
+  <script src="/js/navigation.js" defer></script>
+</head>
+
+<body>
+
+  <nav class="main-nav">
+    <a href="../html/home_page.html">Home</a>
+    <a href="../html/about.html">About</a>
+    <a href="../html/contact.html" class="active">Contact</a>
+    <a href="../html/profile-page.html">Profile</a>
+  </nav>
+
+  <main class="content-page">
+    <div class="intro">
+      <h1>Contact us</h1>
+      <p>Have a question or found an issue with a donor listing? Send a message using the form.</p>
+    </div>
+    <section class="contact-layout">
+      <aside class="contact-info">
+        <h2>Get in touch</h2>
+        <p style="color:#667085;line-height:1.7">Use the form to describe your question or report a problem. Do not
+          include sensitive medical information.</p>
+        <div class="contact-item"><i class="fa-solid fa-envelope"></i>
+          <div><strong>Email support</strong><small>blooddonor@gmail.com</small></div>
+        </div>
+        <div class="contact-item"><i class="fa-solid fa-clock"></i>
+          <div><strong>Response time</strong><small>Response times depend on the project administrator.</small></div>
+        </div>
+        <div class="contact-item"><i class="fa-solid fa-shield-halved"></i>
+          <div><strong>Privacy</strong><small>Only share the information needed to explain your request.</small></div>
+        </div>
+      </aside>
+      <form class="contact-form" id="contactForm">
+        <h2>Send a message</h2>
+        <div class="form-field"><label for="contactName">Your name</label><input id="contactName" name="name" required
+            maxlength="100" placeholder="Enter your name"></div>
+        <div class="form-field"><label for="contactEmail">Email address</label><input id="contactEmail" name="email"
+            type="email" required maxlength="150" placeholder="you@example.com"></div>
+        <div class="form-field"><label for="contactTopic">Topic</label><select id="contactTopic" name="topic">
+            <option>General question</option>
+            <option>Incorrect donor details</option>
+            <option>Website issue</option>
+            <option>Profile support</option>
+            <option>Other</option>
+          </select></div>
+        <div class="form-field"><label for="contactMessage">Message</label><textarea id="contactMessage" name="message"
+            required maxlength="2000" placeholder="How can we help?"></textarea></div>
+        <button class="submit-btn" type="submit"><i class="fa-solid fa-paper-plane"></i> Prepare message</button>
+        <div id="contactStatus" class="form-status" role="status"></div>
+      </form>
+    </section>
+  </main>
+  <footer>
+    <p>© 2026 Blood Donor Management System</p>
+  </footer>
+  <script src="/js/contact.js"></script>
+</body>
+
+</html>

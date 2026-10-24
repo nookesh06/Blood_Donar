@@ -1,217 +1,1058 @@
-/* ===============================
-   GLOBAL RESET & BASE STYLES
-   =============================== */
+:root {
+    --primary: #c6283d;
+    --primary-dark: #a91e32;
+    --primary-light: #fff0f2;
+    --text: #202938;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --surface: #ffffff;
+    --background: #f7f8fc;
+    --success: #18794e;
+    --radius: 14px;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    font-family: "Segoe UI", Roboto, Arial, sans-serif;
 }
 
 body {
-    background: #f3f6fb;
+    font-family: "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--background);
+    color: var(--text);
     min-height: 100vh;
+    line-height: 1.6;
+}
+
+button,
+input {
+    font: inherit;
+}
+
+button {
+    -webkit-tap-highlight-color: transparent;
+}
+
+.page-wrapper {
+    max-width: 1240px;
+    margin: 0 auto;
+    padding: 0 44px;
+}
+
+/* HEADER */
+
+.topbar {
+    min-height: 84px;
     display: flex;
     align-items: center;
-    justify-content: center;
-    padding: 30px;
-    color: #333;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
 }
 
-/* ===============================
-   MAIN CONTAINER
-   =============================== */
-.container {
-    display: flex;
-    width: 100%;
-    max-width: 1100px;
-    background: #ffffff;
+.brand {
+    display: inline-flex;
+    align-items: center;
+    gap: 11px;
+    color: var(--text);
+    text-decoration: none;
+    font-size: 25px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.brand-icon {
+    width: 38px;
+    height: 38px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: var(--primary);
     border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+    font-size: 31px;
+    line-height: 1;
+}
+#blood_color{
+    color: var(--primary);
+}
+.brand-accent {
+    color: lch(0.29% 1.39 19.4 / 0.85);
 }
 
-/* ===============================
-   ASIDE – INFORMATION PANEL
-   =============================== */
+.secure-label {
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.secure-dot {
+    width: 8px;
+    height: 8px;
+    background: #239765;
+    border-radius: 50%;
+}
+
+/* INTRODUCTION */
+
+.page-content {
+    padding: 45px 0 24px;
+}
+
+.page-intro {
+    max-width: 680px;
+    margin-bottom: 30px;
+}
+
+.eyebrow,
+.panel-eyebrow {
+    color: var(--primary);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: 1.6px;
+}
+
+.page-intro h1 {
+    margin-top: 9px;
+    font-size: clamp(28px, 3vw, 37px);
+    line-height: 1.2;
+    letter-spacing: -1.2px;
+    font-weight: 750;
+}
+
+.page-intro p {
+    max-width: 620px;
+    margin-top: 12px;
+    color: var(--muted);
+    font-size: 15px;
+}
+
+/* MAIN LAYOUT */
+
+.registration-layout {
+    display: grid;
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+    align-items: stretch;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 14px 45px rgba(31, 41, 55, 0.055);
+}
+
+/* INFORMATION PANEL */
+
 .info-panel {
-    width: 40%;
-    background: linear-gradient(135deg, #b71c1c, #d32f2f);
-    color: #ffffff;
-    padding: 40px 30px;
+    position: relative;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 38px 32px;
+    color: #fff;
+    background: linear-gradient(155deg, #bd263a 0%, #8e172b 100%);
+}
+
+.illustration {
+    width: 100%;
+    min-height: 174px;
+    position: relative;
+    display: grid;
+    place-items: center;
+    margin-bottom: 27px;
+    background: rgba(255, 255, 255, 0.08);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 18px;
+}
+
+.illustration-circle {
+    position: absolute;
+    width: 125px;
+    height: 125px;
+    border: 1px solid rgba(255, 255, 255, 0.23);
+    border-radius: 50%;
+}
+
+.illustration-drop {
+    z-index: 1;
+    width: 82px;
+    height: 82px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.17);
+    border: 1px solid rgba(255, 255, 255, 0.35);
+    border-radius: 50%;
+    font-size: 42px;
+}
+
+.illustration-plus {
+    position: absolute;
+    z-index: 2;
+    top: 31px;
+    right: calc(50% - 61px);
+    width: 29px;
+    height: 29px;
+    display: grid;
+    place-items: center;
+    color: var(--primary);
+    background: #fff;
+    border-radius: 9px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.panel-eyebrow {
+    color: #ffd7dd;
 }
 
 .info-panel h2 {
-    font-size: 26px;
-    margin-bottom: 15px;
+    max-width: 350px;
+    margin-top: 10px;
+    font-size: 29px;
+    line-height: 1.25;
+    letter-spacing: -0.6px;
 }
 
-.info-panel p {
-    font-size: 15px;
-    line-height: 1.7;
-    margin-bottom: 15px;
-    opacity: 0.95;
-}
-
-.info-panel ul {
-    list-style: none;
-    margin: 20px 0;
-}
-
-.info-panel ul li {
-    font-size: 15px;
-    margin-bottom: 10px;
-    padding-left: 22px;
-    position: relative;
-}
-
-.info-panel ul li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #ffeb3b;
-    font-weight: bold;
-}
-
-/* ===============================
-   FORM SECTION
-   =============================== */
-.form-section {
-    width: 60%;
-    padding: 40px 35px;
-}
-
-.form-section h2 {
-    font-size: 24px;
-    margin-bottom: 25px;
-    color: #2c2c2c;
-}
-
-/* ===============================
-   FORM ELEMENTS
-   =============================== */
-form {
-    display: flex;
-    flex-direction: column;
-}
-
-form input[type="text"] {
-    width: 100%;
-    padding: 12px 14px;
-    margin-bottom: 15px;
-    font-size: 15px;
-    border-radius: 6px;
-    border: 1px solid #ccc;
-    transition: all 0.25s ease;
-}
-
-form input[readonly] {
-    background-color: #f5f5f5;
-    cursor: not-allowed;
-}
-
-form input[type="text"]:focus {
-    outline: none;
-    border-color: #c62828;
-    box-shadow: 0 0 0 2px rgba(198, 40, 40, 0.15);
-}
-
-/* ===============================
-   LOCATION BUTTON
-   =============================== */
-button {
-    background: #1976d2;
-    color: #ffffff;
-    border: none;
-    padding: 11px 14px;
-    margin-bottom: 18px;
+.info-panel>p {
+    margin-top: 13px;
+    color: rgba(255, 255, 255, 0.83);
     font-size: 14px;
-    border-radius: 6px;
-    cursor: pointer;
-    transition: background 0.3s ease, transform 0.1s ease;
+    line-height: 1.8;
 }
 
-button:hover {
-    background: #0d47a1;
+.benefit-list {
+    display: grid;
+    gap: 19px;
+    margin-top: 29px;
 }
 
-button:active {
-    transform: scale(0.98);
-}
-
-/* ===============================
-   GENDER RADIO GROUP
-   =============================== */
-.gender-group {
+.benefit {
     display: flex;
-    gap: 25px;
-    margin-bottom: 25px;
-    font-size: 15px;
+    align-items: flex-start;
+    gap: 12px;
+    font-size: 13px;
+    color: rgba(255, 255, 255, 0.96);
 }
 
-.gender-group label {
+.benefit-check {
+    flex: 0 0 22px;
+    height: 22px;
+    display: grid;
+    place-items: center;
+    color: #fff;
+    background: rgba(255, 255, 255, 0.16);
+    border-radius: 50%;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.panel-note {
+    margin-top: auto;
+    padding-top: 34px;
+    font-size: 12px;
+    color: #ffe1e5;
+}
+
+.panel-note span {
+    margin-right: 6px;
+}
+
+/* FORM CARD */
+
+.form-card {
+    min-width: 0;
+    padding: 38px 40px;
+}
+
+.form-heading {
+    margin-bottom: 29px;
+}
+
+.step-label {
     display: flex;
     align-items: center;
-    gap: 6px;
+    gap: 9px;
+    margin-bottom: 16px;
+    color: var(--muted);
+    font-size: 10px;
+    font-weight: 800;
+    letter-spacing: 1.2px;
+}
+
+.step-number {
+    width: 26px;
+    height: 26px;
+    display: grid;
+    place-items: center;
+    color: var(--primary);
+    background: var(--primary-light);
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.form-heading h2 {
+    font-size: 23px;
+    line-height: 1.35;
+    letter-spacing: -0.5px;
+}
+
+.form-heading p {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+.field-group {
+    margin-bottom: 24px;
+}
+
+.field-group>label,
+.coordinate-field>label {
+    display: block;
+    margin-bottom: 9px;
+    font-size: 13px;
+    font-weight: 650;
+}
+
+.required {
+    color: var(--primary);
+}
+
+.field-group input[type="text"] {
+    width: 100%;
+    min-width: 0;
+    min-height: 46px;
+    padding: 11px 13px;
+    color: var(--text);
+    background: #fff;
+    border: 1px solid #d9dee7;
+    border-radius: 9px;
+    outline: none;
+    font-size: 13px;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+.field-group input[type="text"]::placeholder {
+    color: #9ca3af;
+}
+
+.field-group input[type="text"]:focus {
+    border-color: var(--primary);
+    box-shadow: 0 0 0 3px rgba(198, 40, 61, 0.10);
+}
+
+.field-hint {
+    display: block;
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.6;
+}
+
+/* GENDER OPTIONS */
+
+.gender-options {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+}
+
+.gender-option {
+    position: relative;
+    min-width: 0;
     cursor: pointer;
 }
 
-/* ===============================
-   SUBMIT BUTTON
-   =============================== */
-form input[type="submit"] {
-    background: #c62828;
-    color: #ffffff;
-    border: none;
-    padding: 13px;
-    font-size: 16px;
+.gender-option input {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    opacity: 0;
+}
+
+.option-content {
+    min-height: 44px;
+    display: grid;
+    place-items: center;
+    padding: 8px;
+    color: #4b5563;
+    background: #fff;
+    border: 1px solid #d9dee7;
+    border-radius: 9px;
+    font-size: 12px;
+    transition: 0.2s ease;
+}
+
+.gender-option input:checked+.option-content {
+    color: var(--primary-dark);
+    background: var(--primary-light);
+    border-color: var(--primary);
+    box-shadow: inset 0 0 0 1px var(--primary);
+}
+
+.gender-option input:focus-visible+.option-content {
+    outline: 3px solid rgba(198, 40, 61, 0.22);
+    outline-offset: 2px;
+}
+
+/* LOCATION SECTION */
+
+.location-group {
+    padding: 19px;
+    background: #fafbfe;
+    border: 1px solid #eaedf3;
+    border-radius: 12px;
+}
+
+.location-heading {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 10px;
+    margin-bottom: 14px;
+}
+
+.location-heading label {
+    font-size: 13px;
+    font-weight: 700;
+}
+
+.location-heading .field-hint {
+    max-width: 300px;
+}
+
+.location-badge {
+    padding: 4px 8px;
+    color: #4b5563;
+    background: #edf0f5;
     border-radius: 6px;
+    font-size: 10px;
+    font-weight: 800;
+}
+
+.location-button {
+    width: 100%;
+    min-height: 46px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 10px 14px;
+    color: var(--primary-dark);
+    background: #fff;
+    border: 1px solid #e5a3ad;
+    border-radius: 9px;
+    font-size: 12px;
+    font-weight: 700;
     cursor: pointer;
-    transition: background 0.3s ease, box-shadow 0.3s ease;
+    transition: background 0.2s, border-color 0.2s;
 }
 
-form input[type="submit"]:hover {
-    background: #a61c1c;
-    box-shadow: 0 5px 15px rgba(198, 40, 40, 0.4);
+.location-button:hover {
+    background: var(--primary-light);
+    border-color: var(--primary);
 }
 
-/* ===============================
-   RESPONSIVE DESIGN
-   =============================== */
+.location-button:focus-visible,
+.submit-button:focus-visible {
+    outline: 3px solid rgba(198, 40, 61, 0.25);
+    outline-offset: 3px;
+}
+
+.location-button:disabled,
+.submit-button:disabled {
+    opacity: 0.65;
+    cursor: wait;
+}
+
+.location-icon {
+    font-size: 22px;
+    line-height: 1;
+}
+
+.location-status {
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 11px;
+}
+
+.location-status.success {
+    color: var(--success);
+}
+
+.location-status.error {
+    color: #b42318;
+}
+
+.coordinates {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 15px;
+}
+
+.coordinate-field {
+    min-width: 0;
+}
+
+.coordinate-field>label {
+    margin-bottom: 6px;
+    color: #6b7280;
+    font-size: 11px;
+}
+
+.coordinate-field input[readonly] {
+    min-height: 38px;
+    padding: 8px 10px;
+    color: #525b6b;
+    background: #f0f2f6;
+    border-color: #e5e7eb;
+    font-size: 11px;
+}
+
+/* FORM FEEDBACK */
+
+.form-message {
+    margin-bottom: 16px;
+    padding: 11px 13px;
+    color: #b42318;
+    background: #fff1f0;
+    border: 1px solid #ffd5d2;
+    border-radius: 8px;
+    font-size: 12px;
+}
+
+.form-message.success {
+    color: #166534;
+    background: #effaf3;
+    border-color: #ccebd5;
+}
+
+/* SUBMIT BUTTON */
+
+.submit-button {
+    width: 100%;
+    min-height: 49px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-top: 22px;
+    padding: 12px 17px;
+    color: #fff;
+    background: var(--primary);
+    border: none;
+    border-radius: 9px;
+    font-size: 13px;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background 0.2s, transform 0.2s;
+}
+
+.submit-button:hover {
+    background: var(--primary-dark);
+}
+
+.submit-button:active {
+    transform: translateY(1px);
+}
+
+.submit-button span:last-child {
+    font-size: 20px;
+}
+
+.privacy-note {
+    margin-top: 14px;
+    color: #7b8493;
+    text-align: center;
+    font-size: 10px;
+    line-height: 1.7;
+}
+
+/* FOOTER */
+
+.page-footer {
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+    padding: 24px 0;
+    color: #7b8493;
+    font-size: 11px;
+}
+
+/* TABLET */
+
 @media (max-width: 900px) {
-    .container {
+    .page-wrapper {
+        padding: 0 24px;
+    }
+
+    .registration-layout {
+        grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+    }
+
+    .info-panel {
+        padding: 28px 23px;
+    }
+
+    .form-card {
+        padding: 30px 25px;
+    }
+
+    .info-panel h2 {
+        font-size: 25px;
+    }
+}
+
+/* MOBILE */
+
+@media (max-width: 650px) {
+    .page-wrapper {
+        padding: 0 16px;
+    }
+
+    .topbar {
+        min-height: 70px;
+    }
+
+    .brand {
+        font-size: 22px;
+    }
+
+    .secure-label {
+        font-size: 10px;
+        gap: 6px;
+    }
+
+    .page-content {
+        padding-top: 32px;
+    }
+
+    .page-intro {
+        margin-bottom: 22px;
+    }
+
+    .page-intro h1 {
+        font-size: 29px;
+    }
+
+    .page-intro p {
+        font-size: 13px;
+    }
+
+    .registration-layout {
+        grid-template-columns: minmax(0, 1fr);
+        border-radius: 14px;
+    }
+
+    .info-panel {
+        padding: 25px 23px;
+    }
+
+    .illustration {
+        min-height: 125px;
+        margin-bottom: 20px;
+    }
+
+    .info-panel h2 {
+        font-size: 24px;
+    }
+
+    .benefit-list {
+        gap: 12px;
+        margin-top: 22px;
+    }
+
+    .panel-note {
+        padding-top: 23px;
+    }
+
+    .form-card {
+        padding: 28px 20px;
+    }
+
+    .form-heading h2 {
+        font-size: 21px;
+    }
+
+    .gender-options {
+        gap: 7px;
+    }
+
+    .option-content {
+        font-size: 11px;
+    }
+
+    .location-group {
+        padding: 14px;
+    }
+
+    .page-footer {
+        flex-direction: column;
+        gap: 5px;
+        padding: 20px 0;
+    }
+}
+
+@media (max-width: 360px) {
+    .page-wrapper {
+        padding: 0 10px;
+    }
+
+    .secure-label {
+        max-width: 130px;
+    }
+
+    .coordinates {
+        grid-template-columns: minmax(0, 1fr);
+    }
+
+    .form-card {
+        padding: 24px 14px;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        scroll-behavior: auto !important;
+        transition-duration: 0.01ms !important;
+    }
+}
+
+/* FINAL DESKTOP VIEWPORT LAYOUT */
+
+@media (min-width: 901px) {
+
+    html,
+    body {
+        min-height: 100%;
+        height: 100%;
+    }
+
+    body {
+        overflow: hidden;
+    }
+
+    .page-wrapper {
+        width: 100%;
+        max-width: 1280px;
+        height: 100vh;
+        height: 100dvh;
+        margin: 0 auto;
+        padding: 0 32px;
+        display: flex;
         flex-direction: column;
     }
 
-    .info-panel,
-    .form-section {
-        width: 100%;
+    .topbar {
+        flex: 0 0 66px;
+        min-height: 66px;
+    }
+
+    .page-content {
+        flex: 1;
+        min-height: 0;
+        display: flex;
+        flex-direction: column;
+        padding: 18px 0 0;
+    }
+
+    .page-intro {
+        flex: 0 0 auto;
+        margin-bottom: 16px;
+    }
+
+    .page-intro h1 {
+        font-size: 30px;
+        line-height: 1.25;
+        margin-top: 5px;
+    }
+
+    .page-intro p {
+        margin-top: 5px;
+        font-size: 13px;
+    }
+
+    .registration-layout {
+        flex: 1;
+        min-height: 0;
+        grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        border-radius: 16px;
     }
 
     .info-panel {
-        padding: 30px;
-        text-align: center;
+        min-height: 0;
+        padding: 24px 28px;
     }
 
-    .info-panel ul li {
-        padding-left: 0;
+    .illustration {
+        flex: 0 0 100px;
+        min-height: 100px;
+        margin-bottom: 17px;
     }
 
-    .info-panel ul li::before {
-        display: none;
+    .illustration-circle {
+        width: 90px;
+        height: 90px;
+    }
+
+    .illustration-drop {
+        width: 62px;
+        height: 62px;
+        font-size: 32px;
+    }
+
+    .illustration-plus {
+        top: 12px;
+        right: calc(50% - 45px);
+    }
+
+    .info-panel h2 {
+        font-size: 25px;
+        line-height: 1.3;
+        margin-top: 7px;
+    }
+
+    .info-panel>p {
+        font-size: 13px;
+        line-height: 1.65;
+        margin-top: 8px;
+    }
+
+    .benefit-list {
+        gap: 13px;
+        margin-top: 20px;
+    }
+
+    .benefit {
+        font-size: 12px;
+    }
+
+    .panel-note {
+        padding-top: 14px;
+        font-size: 11px;
+    }
+
+    /* Form uses two columns to reduce vertical height */
+
+    .form-card {
+        min-height: 0;
+        overflow-y: auto;
+        padding: 22px 30px;
+    }
+
+    .form-heading {
+        margin-bottom: 20px;
+    }
+
+    .step-label {
+        margin-bottom: 9px;
+    }
+
+    .form-heading h2 {
+        font-size: 22px;
+    }
+
+    .form-heading p {
+        font-size: 12px;
+        margin-top: 4px;
+    }
+
+    #details_form {
+        display: grid;
+        grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+        column-gap: 16px;
+        row-gap: 15px;
+        align-content: start;
+    }
+
+    #details_form>.field-group {
+        min-width: 0;
+        margin-bottom: 0;
+    }
+
+    #details_form>.field-group:nth-of-type(1),
+    #details_form>.field-group:nth-of-type(2) {
+        grid-row: 1;
+    }
+
+    #details_form>.field-group:nth-of-type(3) {
+        grid-column: 1 / -1;
+    }
+
+    #details_form>.form-message,
+    #details_form>.submit-button,
+    #details_form>.privacy-note {
+        grid-column: 1 / -1;
+    }
+
+    #details_form .field-group>label {
+        margin-bottom: 7px;
+    }
+
+    #details_form .field-group input[type="text"] {
+        min-height: 43px;
+        padding: 10px 12px;
+    }
+
+    #details_form .field-hint {
+        font-size: 11px;
+        line-height: 1.5;
+    }
+
+    #details_form .gender-options {
+        gap: 6px;
+    }
+
+    #details_form .option-content {
+        min-height: 43px;
+        font-size: 12px;
+    }
+
+    #details_form .location-group {
+        padding: 14px;
+    }
+
+    #details_form .location-heading {
+        margin-bottom: 10px;
+    }
+
+    #details_form .location-button {
+        min-height: 42px;
+    }
+
+    #details_form .location-status {
+        margin-top: 7px;
+        font-size: 11px;
+    }
+
+    #details_form .coordinates {
+        margin-top: 10px;
+        gap: 12px;
+    }
+
+    #details_form .coordinate-field input[readonly] {
+        min-height: 35px;
+    }
+
+    #details_form .submit-button {
+        margin-top: 0;
+        min-height: 46px;
+    }
+
+    #details_form .privacy-note {
+        margin-top: -5px;
+        font-size: 10px;
+    }
+
+    .page-footer {
+        flex: 0 0 38px;
+        padding: 10px 0;
     }
 }
 
-@media (max-width: 480px) {
+/* SHORT LAPTOP VIEWPORTS */
+
+@media (min-width: 901px) and (max-height: 720px) {
+    .topbar {
+        flex-basis: 54px;
+        min-height: 54px;
+    }
+
+    .page-content {
+        padding-top: 10px;
+    }
+
+    .page-intro {
+        margin-bottom: 10px;
+    }
+
+    .page-intro h1 {
+        font-size: 26px;
+    }
+
+    .registration-layout .info-panel {
+        padding: 16px 23px;
+    }
+
+    .illustration {
+        flex-basis: 76px;
+        min-height: 76px;
+        margin-bottom: 10px;
+    }
+
+    .illustration-circle {
+        width: 70px;
+        height: 70px;
+    }
+
+    .illustration-drop {
+        width: 50px;
+        height: 50px;
+        font-size: 27px;
+    }
+
+    .info-panel h2 {
+        font-size: 22px;
+    }
+
+    .benefit-list {
+        gap: 9px;
+        margin-top: 13px;
+    }
+
+    .form-card {
+        padding: 14px 24px;
+    }
+
+    .form-heading {
+        margin-bottom: 12px;
+    }
+
+    #details_form {
+        row-gap: 9px;
+    }
+
+    #details_form .location-group {
+        padding: 9px 12px;
+    }
+
+    #details_form .location-heading {
+        margin-bottom: 6px;
+    }
+
+    #details_form .coordinates {
+        margin-top: 6px;
+    }
+
+    .page-footer {
+        flex-basis: 30px;
+        padding: 6px 0;
+    }
+}
+
+/* MOBILE AND TABLET: KEEP NORMAL PAGE SCROLLING */
+
+@media (max-width: 900px) {
     body {
-        padding: 15px;
+        overflow: auto;
     }
 
-    .form-section {
-        padding: 25px 20px;
+    .page-wrapper {
+        height: auto;
+        min-height: 100vh;
     }
 
-    .info-panel {
-        padding: 25px 20px;
+    .page-content {
+        display: block;
+    }
+
+    .registration-layout {
+        flex: initial;
     }
 }

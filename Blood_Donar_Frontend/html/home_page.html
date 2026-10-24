@@ -1,119 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Donor Home</title>
-    <link rel="stylesheet" href="../css/home_page.css">
-    <!-- Font Awesome Icons -->
-    <link rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-          <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
-
-<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
-
-<link rel="stylesheet"
-      href="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.css"/>
-
-<script src="https://unpkg.com/leaflet-routing-machine@latest/dist/leaflet-routing-machine.js"></script>
-
-<script src="../js/search.js" defer></script>
-
-
-          
-
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Blood Donor Management</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.css">
+  <link rel="stylesheet" href="https://unpkg.com/leaflet.markercluster/dist/MarkerCluster.Default.css">
+  <link rel="stylesheet" href="/css/home_page.css">
+  <script src="/js/navigation.js" defer></script>
 
 </head>
+
 <body>
-
-    <!-- Navigation Bar -->
-    <nav>
-
-        <!-- Search Form -->
-        <form action="#" method="get">
-
-            <select name="blood_group" id="blood_group" >
-                <option value="">Blood Group</option>
-                <option value="A+">A+</option>
-                <option value="A-">A-</option>
-                <option value="B+">B+</option>
-                <option value="B-">B-</option>
-                <option value="O+">O+</option>
-                <option value="O-">O-</option>
-                <option value="AB+">AB+</option>
-                <option value="AB-">AB-</option>
-                <option value="Other">Other</option>
-            </select>
-            <input type="search" id="city" name="place" placeholder="Enter Place name">
-
-            <button type="submit">
-                <i class="fa fa-search"></i> Search
-            </button>
-
-        </form>
-
-        <!-- Statistics -->
-        <div class="count">
-            <div class="total_donors">
-                <strong>Total Donors:</strong>
-                <span id="donor_count">0</span>
-            </div>
-
-            <div class="available_blood_units">
-                <strong>Available Blood Units:</strong>
-                <span id="blood_unit_count">0</span>
-            </div>
-        </div>
-
-        <!-- Auth Links -->
-        <div class="signinOrsignup">
-            <a href="signup.html">Signup</a>
-            <span> | </span>
-            <a href="signin.html">Signin</a>
-        </div>
-
-        <!-- Profile -->
-        <div class="profile">
-            <i class="fa fa-user"></i>
-            <a href="profile.html">Profile</a>
-        </div>
-
+  <header class="topbar">
+    <a class="brand" href="#">
+      <span class="brand-icon">
+        <i class="fa-solid fa-droplet"></i>
+      </span>
+      <span>
+        <strong>Blood Donor Management</strong>
+        <small>Donate Blood Save Lives</small>
+      </span>
+    </a>
+    <nav class="main-nav">
+      <a class="active" href="../html/home_page.html"><i class="fa-solid fa-house"></i> Home</a>
+      <a href="../html/about.html">About</a>
+      <a href="../html/contact.html">Contact</a>
     </nav>
-
-    <!-- Main Section -->
-    <main>
-
-        <h2>Nearby Blood Donors</h2>
-
-        <!-- Google Map -->
-        <section>
-    <div id="map" tabindex="0"></div>
-    <button id="locateBtn" title="My Location"></button>
-
-</section>
-
-
-        <!-- Donor List Placeholder -->
-        <section>
-            <h3>Available Donors</h3>
-
-            <p>
-                Donor results will appear here based on selected
-                <strong>blood group</strong> and <strong>city</strong>.
-            </p>
-
-        </section>
-
-    </main>
-
-    <!-- Footer -->
-    <footer>
-        <p>
-            © 2025 Blood Donor Management System |
-            Save Life. Donate Blood.
-        </p>
-    </footer>
-
-
+    <div class="top-actions">
+      <div class="stat"><i class="fa-solid fa-users"></i><span><strong id="donor_count">0</strong><small>Total
+            Donors</small></span></div>
+      <div class="stat"><i class="fa-solid fa-droplet"></i><span><strong
+            id="blood_unit_count">—</strong><small>Available Units</small></span></div>
+      <div class="auth-links"><a href="../html/signup_page.html">Signup</a><span>|</span>
+        <a href="../html/signin_page.html">Signin</a>
+      </div>
+      <a class="profile-link" href="../html/profile-page.html"><i class="fa-solid fa-user"></i> Profile</a>
+    </div>
+  </header>
+  <main class="page-shell">
+    <section class="search-panel" aria-label="Search donors">
+      <form id="searchForm" class="search-form">
+        <label class="field"><span>Blood Group</span>
+          <div class="input-wrap"><i class="fa-solid fa-droplet"></i><select id="blood_group">
+              <option value="">All blood groups</option>
+              <option value="A+">A+</option>
+              <option value="A-">A-</option>
+              <option value="B+">B+</option>
+              <option value="B-">B-</option>
+              <option value="O+">O+</option>
+              <option value="O-">O-</option>
+              <option value="AB+">AB+</option>
+              <option value="AB-">AB-</option>
+            </select></div>
+        </label>
+        <label class="field"><span>Location</span>
+          <div class="input-wrap"><i class="fa-solid fa-location-dot"></i><input id="city" type="search"
+              placeholder="Enter city or place"><button class="clear-location" id="clearCity" type="button"
+              aria-label="Clear location"><i class="fa-solid fa-circle-xmark"></i></button></div>
+        </label>
+        <button class="search-button" type="submit"><i class="fa-solid fa-magnifying-glass"></i> Search</button>
+      </form>
+      <div class="search-summary"><i class="fa-solid fa-location-dot"></i>
+        <p id="searchSummary">Showing all blood donors across all locations.</p>
+      </div>
+      <button class="location-button" id="locateBtn" type="button"><i class="fa-solid fa-crosshairs"></i> Use My
+        Location</button>
+    </section>
+    <section class="results-layout">
+      <aside class="donor-sidebar">
+        <div class="list-heading">
+          <div>
+            <h1>Donors Found <span id="list_count">(0)</span></h1>
+            <p>Choose a donor to view details on the map</p>
+          </div><label class="sort-label">Sort by<select id="sortDonors">
+              <option value="nearest">Nearest</option>
+              <option value="name">Name</option>
+              <option value="blood">Blood group</option>
+            </select></label>
+        </div>
+        <div id="donorList" class="donor-list">
+          <div class="empty-state"><i class="fa-solid fa-droplet"></i>
+            <p>Loading donors…</p>
+          </div>
+        </div>
+      </aside>
+      <section class="map-panel" aria-label="Donor map">
+        <div id="map"></div>
+        <div class="map-legend"><span><i class="legend-dot you-dot"></i>You</span><span><i
+              class="legend-pin donor-pin"></i>Donor</span><span><i class="legend-dot nearest-dot"></i>Nearest
+            donor</span></div>
+        <div id="mapStatus" class="map-status" aria-live="polite">Map is ready</div>
+      </section>
+    </section>
+  </main>
+  <footer id="contact"><span>© 2026 Blood Donor Management System</span><span>Every donation can save a life.</span>
+  </footer>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+  <script src="https://unpkg.com/leaflet-routing-machine/dist/leaflet-routing-machine.js"></script>
+  <script src="https://unpkg.com/leaflet.markercluster/dist/leaflet.markercluster.js"></script>
+  <script src="/js/search.js"></script>
 </body>
+
 </html>

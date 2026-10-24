@@ -1,0 +1,141 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign In | BloodConnect</title>
+
+    <link rel="stylesheet" href="../css/signin_page.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="../js/signin_page.js" defer></script>
+</head>
+
+<body>
+    <main class="login-page">
+
+        <!-- Left welcome panel -->
+        <aside class="welcome-panel">
+            <a class="brand" href="/html/home_page.html">
+                <span class="brand-icon">
+                    <i class="fa-solid fa-heart-pulse"></i>
+                </span>
+                BloodConnect
+            </a>
+
+            <div class="welcome-content">
+                <span class="eyebrow">WELCOME BACK</span>
+
+                <h1>Every second<br>can <span>save a life.</span></h1>
+
+                <p>
+                    Sign in to reconnect with our donor community
+                    and help people find the blood they need.
+                </p>
+
+                <div class="quote-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>
+                        Your contribution can save lives.
+                        Log in and continue the mission.
+                    </p>
+                </div>
+
+                <div class="trust-note">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <span>One community. One life-saving mission.</span>
+                </div>
+            </div>
+
+            <div class="panel-footer">
+                Together, we can make a difference.
+            </div>
+        </aside>
+
+        <!-- Right sign-in panel -->
+        <section class="form-panel">
+
+            <div class="mobile-brand">
+                <i class="fa-solid fa-heart-pulse"></i>
+                BloodConnect
+            </div>
+
+            <div class="form-heading">
+                <span class="step-label">YOUR ACCOUNT</span>
+                <h2>Welcome back</h2>
+                <p class="subtitle">
+                    Enter your credentials to access your account.
+                </p>
+            </div>
+
+            <form id="loginForm">
+
+                <div class="field">
+                    <label for="loginEmail">Username or email address</label>
+
+                    <div class="input-wrap">
+                        <i class="fa-regular fa-user field-icon"></i>
+                        <input
+                            type="text"
+                            id="loginEmail"
+                            placeholder="Enter username or email"
+                            autocomplete="username"
+                            required>
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label for="loginPassword">Password</label>
+
+                    <div class="input-wrap">
+                        <i class="fa-solid fa-lock field-icon"></i>
+
+                        <input
+                            type="password"
+                            id="loginPassword"
+                            placeholder="Enter your password"
+                            autocomplete="current-password"
+                            required>
+
+                        <button
+                            type="button"
+                            class="password-toggle"
+                            id="togglePassword"
+                            aria-label="Show password"
+                            aria-pressed="false">
+                            <i class="fa-regular fa-eye"></i>
+                        </button>
+                    </div>
+                </div>
+
+                <p id="loginMessage" class="login-message"
+                   role="status" aria-live="polite"></p>
+
+                <button type="submit" class="submit-btn" id="loginButton">
+                    <span>Sign In</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
+
+                <div class="divider">
+                    <span>NEW TO BLOODCONNECT?</span>
+                </div>
+
+                <a class="signup-btn" href="/html/signup_page.html">
+                    Create an account
+                </a>
+
+                <p class="privacy-note">
+                    <i class="fa-solid fa-lock"></i>
+                    Your account details are sent to the application server.
+                </p>
+
+            </form>
+        </section>
+
+    </main>
+</body>
+
+</html>

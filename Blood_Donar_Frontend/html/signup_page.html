@@ -4,101 +4,166 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign Up</title>
+    <title>Create Account | BloodConnect</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="../css/signup.css">
-
-    <!-- Font Awesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src='https://kit.fontawesome.com/a076d05399.js' crossorigin='anonymous'></script>
+
     <script src="../js/signup.js" defer></script>
 </head>
 
 <body>
+    <main class="signup-page">
 
-    <div class="container">
+        <aside class="welcome-panel">
+            <a class="brand" href="/html/home_page.html">
+                <span class="brand-icon"><i class="fa-solid fa-heart-pulse"></i></span>
+                BloodConnect
+            </a>
 
-        <aside class="aside_quote">
-            <h1>Welcome!</h1>
-            <i class='fas fa-hand-holding-heart'></i>
+            <div class="welcome-content">
+                <span class="eyebrow">GIVE BLOOD. SAVE LIVES.</span>
+                <h1>Be someone's<br><span>reason to live.</span></h1>
+                <p>Join our donor community and help connect people with the blood they need.</p>
 
-            <p class="quote">
-                “A few minutes of your time can give someone a lifetime.”
-            </p>
+                <div class="quote-card">
+                    <i class="fa-solid fa-quote-left"></i>
+                    <p>A few minutes of your time can give someone a lifetime.</p>
+                </div>
+
+                <div class="trust-note">
+                    <i class="fa-solid fa-shield-heart"></i>
+                    <span>Every donor makes a difference.</span>
+                </div>
+            </div>
+
+            <div class="panel-footer">Together, we can save lives.</div>
         </aside>
 
-
-        <!-- Right Side Form -->
-        <section class="form_section">
-            <h2>Create Account</h2>
+        <section class="form-panel">
+            <div class="form-heading">
+                <span class="mobile-brand">
+                    <i class="fa-solid fa-heart-pulse"></i> BloodConnect
+                </span>
+                <p class="step-label">YOUR JOURNEY STARTS HERE</p>
+                <h2>Create your account</h2>
+                <p class="subtitle">Enter your details to join our donor community.</p>
+            </div>
 
             <form id="signupForm">
+                <div class="form-grid">
 
-                <div class="input-group">
-                    <i class="fa fa-user"></i>
-                    <input type="text" name="name" placeholder="Full Name" required>
+                    <div class="field">
+                        <label for="fullName">Full name</label>
+                        <div class="input-wrap">
+                            <i class="fa-regular fa-user field-icon"></i>
+                            <input type="text" id="fullName" name="name" placeholder="Enter your full name"
+                                autocomplete="name" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="bloodGroup">Blood group</label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-droplet field-icon"></i>
+                            <select name="bloodGroup" id="bloodGroup" required>
+                                <option value="">Select blood group</option>
+                                <option value="A+">A+</option>
+                                <option value="A-">A-</option>
+                                <option value="B+">B+</option>
+                                <option value="B-">B-</option>
+                                <option value="AB+">AB+</option>
+                                <option value="AB-">AB-</option>
+                                <option value="O+">O+</option>
+                                <option value="O-">O-</option>
+                                <option value="Other">Other</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="field full-width" id="blood_name_div" hidden>
+                        <label for="blood_name">Specify blood group</label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-droplet field-icon"></i>
+                            <input type="text" name="blood_group_name" id="blood_name"
+                                placeholder="Enter your blood group">
+                        </div>
+                    </div>
+
+                    <div class="field full-width">
+                        <label for="email">Email address</label>
+                        <div class="input-wrap">
+                            <i class="fa-regular fa-envelope field-icon"></i>
+                            <input type="email" id="email" name="email" placeholder="you@example.com"
+                                autocomplete="email" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="mobile">Mobile number</label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-phone field-icon"></i>
+                            <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number"
+                                autocomplete="tel" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="dob">Date of birth</label>
+                        <div class="input-wrap">
+                            <i class="fa-regular fa-calendar field-icon"></i>
+                            <input type="date" id="dob" name="dob" autocomplete="bday" required>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="password">Password</label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-lock field-icon"></i>
+                            <input type="password" id="password" name="password" placeholder="Create a password"
+                                autocomplete="new-password" required>
+                            <button class="password-toggle" type="button" data-target="password"
+                                aria-label="Show password" aria-pressed="false">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="field">
+                        <label for="confirmPassword">Confirm password</label>
+                        <div class="input-wrap">
+                            <i class="fa-solid fa-lock field-icon"></i>
+                            <input type="password" id="confirmPassword" name="confirmPassword"
+                                placeholder="Re-enter password" autocomplete="new-password" required>
+                            <button class="password-toggle" type="button" data-target="confirmPassword"
+                                aria-label="Show confirm password" aria-pressed="false">
+                                <i class="fa-regular fa-eye"></i>
+                            </button>
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="input-group">
-                    <i class="fa fa-droplet"></i>
-                    <select name="bloodGroup" id="bloodGroup" required>
-                        <option value="">Select Blood Group</option>
-                        <option value="A+">A+</option>
-                        <option value="A-">A-</option>
-                        <option value="B+">B+</option>
-                        <option value="B-">B-</option>
-                        <option value="AB+">AB+</option>
-                        <option value="AB-">AB-</option>
-                        <option value="O+">O+</option>
-                        <option value="O-">O-</option>
-                        <option value="Other">Other</option>
-                    </select>
-                </div>
-                <div class="input-group" id="blood_name_div">
-                    <i class="fa fa-droplet"></i>
-                    <input type="text" name="blood_group_name" placeholder="Enter Blood Group" id="blood_name">
-                </div>
-                <div class="input-group">
-                    <i class="fa fa-envelope"></i>
-                    <input type="email" name="email" placeholder="Email Address" required>
-                </div>
+                <p id="formMessage" class="form-message" role="status" aria-live="polite"></p>
 
-                <div class="input-group">
-                    <i class="fa fa-phone"></i>
-                    <input type="tel" name="mobile" placeholder="Mobile Number" required>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa fa-calendar"></i>
-                    <input type="date" name="dob" required>
-                </div>
-
-
-                <div class="input-group">
-                    <i class="fa fa-eye toggle-password" data-target="password"></i>
-                    <input type="password" name="password" id="password" placeholder="Password" required>
-                </div>
-
-                <div class="input-group">
-                    <i class="fa fa-eye toggle-password" data-target="confirmPassword"></i>
-                    <input type="password" name="confirmPassword" id="confirmPassword" placeholder="Confirm Password"
-                        required>
-                </div>
-
-
-                <button type="submit" class="btn">Sign Up</button>
+                <button type="submit" class="submit-btn" id="signupButton">
+                    <span>Create Account</span>
+                    <i class="fa-solid fa-arrow-right"></i>
+                </button>
 
                 <p class="login-text">
-                    Already have an account? <a href="#">Login</a>
+                    Already have an account?
+                    <a href="/html/login_page.html">Log in</a>
                 </p>
 
+                <p class="privacy-note">
+                    <i class="fa-solid fa-lock"></i>
+                    Your information is submitted securely to the application server.
+                </p>
             </form>
         </section>
 
-    </div>
-
-
+    </main>
 </body>
 
 </html>

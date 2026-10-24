@@ -1,0 +1,250 @@
+
+.profile-page {
+    width: 100%;
+    max-width: 1050px;
+    margin: 0 auto;
+}
+
+.page-heading {
+    margin-bottom: 24px;
+}
+
+.page-heading h1 {
+    margin: 0 0 8px;
+    color: #202938;
+    font-size: 28px;
+    font-weight: 800;
+}
+
+.page-heading p,
+.details-head p {
+    margin: 0;
+    color: #778195;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+.profile-layout {
+    display: grid;
+    grid-template-columns: 280px minmax(0, 1fr);
+    align-items: start;
+    gap: 22px;
+}
+
+.profile-card,
+.details-card {
+    padding: 26px;
+    background: #fff;
+    border: 1px solid #edf0f5;
+    border-radius: 16px;
+    box-shadow: 0 8px 25px rgba(25, 35, 55, 0.05);
+}
+
+.profile-card {
+    text-align: center;
+}
+
+.profile-avatar {
+    width: 76px;
+    height: 76px;
+    display: grid;
+    place-items: center;
+    margin: 0 auto 16px;
+    border-radius: 50%;
+    background: #fff0f2;
+    color: #d9273e;
+    font-size: 30px;
+}
+
+.profile-card h2 {
+    margin: 0 0 8px;
+    font-size: 19px;
+    overflow-wrap: anywhere;
+}
+
+.profile-card > p {
+    margin: 0 0 15px;
+    color: #778195;
+    font-size: 12px;
+    overflow-wrap: anywhere;
+}
+
+.profile-tag {
+    display: inline-block;
+    padding: 7px 12px;
+    border-radius: 20px;
+    background: #fff0f2;
+    color: #d9273e;
+    font-size: 11px;
+    font-weight: 700;
+}
+
+.profile-tip {
+    margin-top: 24px;
+    padding: 15px;
+    border-radius: 10px;
+    background: #f8f9fc;
+    text-align: left;
+}
+
+.profile-tip strong {
+    color: #374151;
+    font-size: 12px;
+}
+
+.profile-tip strong i {
+    margin-right: 5px;
+    color: #d9273e;
+}
+
+.profile-tip p {
+    margin: 9px 0 0;
+    color: #778195;
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.details-head {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.details-head h2 {
+    margin: 0 0 7px;
+    font-size: 20px;
+}
+
+.edit-btn {
+    flex-shrink: 0;
+    padding: 10px 13px;
+    border: none;
+    border-radius: 8px;
+    background: #fff0f2;
+    color: #d9273e;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.edit-btn:hover {
+    background: #ffe0e5;
+}
+
+.profile-fields {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 19px 16px;
+}
+
+.profile-field label {
+    display: block;
+    margin-bottom: 8px;
+    color: #374151;
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.profile-field input {
+    width: 100%;
+    height: 43px;
+    padding: 0 12px;
+    border: 1px solid #e0e5ed;
+    border-radius: 8px;
+    outline: none;
+    background: #f5f6f9;
+    color: #586174;
+    font: inherit;
+    font-size: 12px;
+}
+
+.profile-field input:not([readonly]) {
+    background: #fff;
+    color: #202938;
+}
+
+.profile-field input:not([readonly]):focus {
+    border-color: #d9273e;
+    box-shadow: 0 0 0 3px rgba(217, 39, 62, 0.09);
+}
+
+.profile-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.profile-actions button {
+    padding: 11px 17px;
+    border: 1px solid #e0e5ed;
+    border-radius: 8px;
+    background: #fff;
+    color: #4b5565;
+    font: inherit;
+    font-size: 12px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.profile-actions #saveBtn {
+    border-color: #d9273e;
+    background: #d9273e;
+    color: #fff;
+}
+
+.profile-actions #saveBtn:hover {
+    background: #b91c32;
+}
+
+.profile-actions button[hidden] {
+    display: none !important;
+}
+
+#profileMessage {
+    margin: 12px 0 0;
+    color: #778195;
+    font-size: 12px;
+}
+
+.profile-footer {
+    padding: 24px 0 4px;
+    text-align: center;
+    color: #8992a1;
+    font-size: 11px;
+}
+
+@media (max-width: 760px) {
+    .profile-layout {
+        grid-template-columns: 1fr;
+    }
+
+    .profile-card {
+        padding: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 12px;
+    }
+
+    .profile-card,
+    .details-card {
+        padding: 19px;
+    }
+
+    .profile-fields {
+        grid-template-columns: 1fr;
+    }
+
+    .details-head {
+        align-items: flex-start;
+    }
+
+    .page-heading h1 {
+        font-size: 24px;
+    }
+}

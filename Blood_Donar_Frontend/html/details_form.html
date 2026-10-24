@@ -4,55 +4,191 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Blood Donation Details</title>
+
+    <title>Complete Donor Profile | BloodConnect</title>
+
     <link rel="stylesheet" href="../css/details_form.css">
     <script src="../js/details_form.js" defer></script>
 
 </head>
 
 <body>
+    <main class="page-wrapper">
 
-    <div class="container">
+        <header class="topbar">
+            <a href="#" class="brand" aria-label="BloodConnect home">
+                <span class="brand-icon" aria-hidden="true">+</span>
+                <span id = "blood_color">Blood<span class="brand-accent">Connect</span></span>
+            </a>
 
-        <!-- ASIDE -->
-        <aside class="info-panel">
-            <h2>🩸 Blood Donation</h2>
-            <p>
-                Share your live location to help patients find nearby donors
-                quickly during emergencies.
-            </p>
-            <ul>
-                <li>✔ GPS-based accurate location</li>
-                <li>✔ Faster donor matching</li>
-                <li>✔ Secure & permission-based</li>
-            </ul>
-        </aside>
+            <span class="secure-label">
+                <span class="secure-dot"></span>
+                Secure donor registration
+            </span>
+        </header>
 
-        <!-- FORM -->
-        <section class="form-section">
-            <h2>Donor Details</h2>
+        <section class="page-content">
 
-            <form id="details_form">
-                <input type="text" name="city" placeholder="City" required>
+            <div class="page-intro">
+                <span class="eyebrow">DONOR REGISTRATION</span>
+                <h1>Complete your donor profile</h1>
+                <p>
+                    A few more details will help patients find eligible blood
+                    donors in their area when they need help.
+                </p>
+            </div>
 
-                <!-- Latitude & Longitude (hidden but submitted) -->
-                <input type="text" id="latitude" name="latitude" placeholder="Latitude" readonly>
-                <input type="text" id="longitude" name="longitude" placeholder="Longitude" readonly>
+            <div class="registration-layout">
 
-                <button type="button" onclick="getLocation()">📍 Use Current Location</button>
+                <aside class="info-panel">
+                    <div class="illustration" aria-hidden="true">
+                        <span class="illustration-drop">♥</span>
+                        <span class="illustration-plus">+</span>
+                        <span class="illustration-circle"></span>
+                    </div>
 
-                <div class="gender-group">
-                    <label><input type="radio" name="gender" value="male" required> Male</label>
-                    <label><input type="radio" name="gender" value="female"> Female</label>
-                    <label><input type="radio" name="gender" value="other"> Other</label>
-                </div>
+                    <span class="panel-eyebrow">YOUR DONATION MATTERS</span>
+                    <h2>One donation can make a difference.</h2>
+                    <p>
+                        Help build a community where finding a blood donor
+                        becomes faster and easier.
+                    </p>
 
-<button type="submit" id="btnSubmit">Submit</button>
-            </form>
+                    <div class="benefit-list">
+                        <div class="benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Connect with nearby patients</span>
+                        </div>
+
+                        <div class="benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Share your location with permission</span>
+                        </div>
+
+                        <div class="benefit">
+                            <span class="benefit-check">✓</span>
+                            <span>Keep your profile details up to date</span>
+                        </div>
+                    </div>
+
+                    <div class="panel-note">
+                        <span aria-hidden="true">♥</span>
+                        Every donor can make a difference.
+                    </div>
+                </aside>
+
+                <section class="form-card" aria-labelledby="form-heading">
+
+                    <div class="form-heading">
+                        <div class="step-label">
+                            <span class="step-number">02</span>
+                            <span>PROFILE DETAILS</span>
+                        </div>
+
+                        <h2 id="form-heading">Tell us about yourself</h2>
+                        <p>Complete the fields below to finish registration.</p>
+                    </div>
+
+                    <form id="details_form">
+
+                        <div class="field-group">
+                            <label for="city">City or town
+                                <span class="required">*</span>
+                            </label>
+
+                            <input type="text" id="city" name="city" placeholder="Enter your city or town"
+                                autocomplete="address-level2" maxlength="100" required />
+
+                            <span class="field-hint">
+                                Enter the city where you are usually available
+                                to donate.
+                            </span>
+                        </div>
+
+                        <div class="field-group">
+                            <label>Gender
+                                <span class="required">*</span>
+                            </label>
+
+                            <div class="gender-options">
+                                <label class="gender-option">
+                                    <input type="radio" name="gender" value="male" required />
+                                    <span class="option-content">Male</span>
+                                </label>
+
+                                <label class="gender-option">
+                                    <input type="radio" name="gender" value="female" />
+                                    <span class="option-content">Female</span>
+                                </label>
+
+                                <label class="gender-option">
+                                    <input type="radio" name="gender" value="other" />
+                                    <span class="option-content">Other</span>
+                                </label>
+                            </div>
+                        </div>
+
+                        <div class="field-group location-group">
+                            <div class="location-heading">
+                                <div>
+                                    <label for="latitude">Current location</label>
+                                    <p class="field-hint">
+                                        Allow location access to help identify
+                                        nearby donors.
+                                    </p>
+                                </div>
+
+                                <span class="location-badge">GPS</span>
+                            </div>
+
+                            <button type="button" class="location-button" id="locationButton">
+                                <span class="location-icon" aria-hidden="true">⌖</span>
+                                <span id="locationButtonText">Use my current location</span>
+                            </button>
+
+                            <p class="location-status" id="locationStatus" role="status" aria-live="polite">
+                                Location has not been shared.
+                            </p>
+
+                            <div class="coordinates">
+                                <div class="coordinate-field">
+                                    <label for="latitude">Latitude</label>
+                                    <input type="text" id="latitude" name="latitude" placeholder="Not available"
+                                        readonly />
+                                </div>
+
+                                <div class="coordinate-field">
+                                    <label for="longitude">Longitude</label>
+                                    <input type="text" id="longitude" name="longitude" placeholder="Not available"
+                                        readonly />
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="form-message" id="formMessage" role="alert" aria-live="polite" hidden></div>
+
+                        <button type="submit" class="submit-button" id="btnSubmit">
+                            <span>Save and complete profile</span>
+                            <span aria-hidden="true">→</span>
+                        </button>
+
+                        <p class="privacy-note">
+                            Your location is requested only when you choose
+                            to share it. You can deny browser permission.
+                        </p>
+
+                    </form>
+                </section>
+
+            </div>
+
+            <footer class="page-footer">
+                <span>LifeLink · Blood Donation Platform</span>
+                <span>Every drop counts.</span>
+            </footer>
+
         </section>
-
-    </div>
-    
+    </main>
 </body>
 
 </html>

@@ -1,0 +1,132 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Profile | BloodConnect</title>
+
+    <link rel="stylesheet" href="/css/home_page.css">
+    <link rel="stylesheet" href="/css/navbar.css">
+    <link rel="stylesheet" href="/css/profile.css">
+
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script src="/js/profile.js" defer></script>
+    <script src="/js/navigation.js" defer></script>
+</head>
+
+<body>
+
+    <nav class="main-nav">
+        <a href="/html/home_page.html">Home</a>
+        <a href="/html/about.html">About</a>
+        <a href="/html/contact.html">Contact</a>
+        <a href="/html/profile-page.html" class="active">Profile</a>
+    </nav>
+
+    <main class="profile-page">
+
+        <header class="page-heading">
+            <h1>My Profile</h1>
+            <p>View your details and edit them whenever they need updating.</p>
+        </header>
+
+        <section class="profile-layout">
+
+            <!-- Profile summary -->
+            <aside class="profile-card">
+                <div class="profile-avatar">
+                    <i class="fa-solid fa-user"></i>
+                </div>
+
+                <h2 id="profileDisplayName">Your name</h2>
+                <p id="profileDisplayEmail">Add your email address</p>
+
+                <span class="profile-tag">Account Profile</span>
+
+                <div class="profile-tip">
+                    <strong>
+                        <i class="fa-solid fa-shield-halved"></i>
+                        Keep details updated
+                    </strong>
+
+                    <p>
+                        Accurate contact and location details help people
+                        reach you when needed.
+                    </p>
+                </div>
+            </aside>
+
+            <!-- Personal information -->
+            <section class="details-card">
+
+                <div class="details-head">
+                    <div>
+                        <h2>Personal information</h2>
+                        <p>Manage your donor account details.</p>
+                    </div>
+
+                    <button id="editBtn" class="edit-btn" type="button">
+                        <i class="fa-solid fa-pen"></i>
+                        Edit profile
+                    </button>
+                </div>
+
+                <form id="profileForm">
+
+                    <div class="profile-fields">
+
+                        <div class="profile-field">
+                            <label for="fullName">Full Name</label>
+                            <input type="text" id="fullName"
+                                   name="userName" readonly required>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="mobileNumber">Mobile Number</label>
+                            <input type="tel" id="mobileNumber"
+                                   name="mobileNumber" readonly required>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="bloodGroup">Blood Group</label>
+                            <input type="text" id="bloodGroup"
+                                   name="bloodGroup" readonly required>
+                        </div>
+
+                        <div class="profile-field">
+                            <label for="city">City</label>
+                            <input type="text" id="city"
+                                   name="city" readonly required>
+                        </div>
+
+                    </div>
+
+                    <div class="profile-actions">
+                        <button type="button" id="cancelBtn" hidden>
+                            Cancel
+                        </button>
+
+                        <button type="submit" id="saveBtn" hidden>
+                            <i class="fa-solid fa-check"></i>
+                            Save Changes
+                        </button>
+                    </div>
+
+                    <p id="profileMessage" role="status" aria-live="polite"></p>
+
+                </form>
+            </section>
+
+        </section>
+    </main>
+
+    <footer class="profile-footer">
+        <p>© 2026 Blood Donor Management System</p>
+    </footer>
+
+</body>
+</html>

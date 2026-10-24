@@ -1,0 +1,50 @@
+/* Top navigation bar */
+.main-nav {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+    padding: 16px 24px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #e5e7eb;
+}
+
+/* Navigation names */
+.main-nav a {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+    color: #374151;
+    font-size: 16px;
+    font-weight: 600;
+    padding: 10px 14px;
+    border-radius: 8px;
+    transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* Hover effect */
+.main-nav a:hover {
+    color: #dc2626;
+    background-color: #fef2f2;
+}
+
+/* Highlight the current page */
+.main-nav a.active {
+    color: #dc2626;
+    background-color: #fee2e2;
+}
+
+/* Mobile layout */
+@media (max-width: 600px) {
+    .main-nav {
+        gap: 4px;
+        padding: 10px 4px;
+        flex-wrap: wrap;
+    }
+
+    .main-nav a {
+        font-size: 14px;
+        padding: 8px;
+    }
+}
